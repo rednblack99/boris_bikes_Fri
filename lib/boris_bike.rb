@@ -8,6 +8,7 @@ class DockingStation
   end
 
   def check_bike
+    @bike
   end
 end
 
