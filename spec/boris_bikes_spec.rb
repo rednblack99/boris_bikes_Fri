@@ -19,4 +19,8 @@ describe DockingStation do
     expect (subject.dock_bike(bike)).equal? bike
   end
 
+  it "checks if bike is in docking station" do
+    expect(subject).to respond_to :check_bike
+  end
+
 end
