@@ -10,7 +10,7 @@ describe DockingStation do
   end
 
   it "gets working bike" do
-    bike = subject.release_bike
+    bike = Bike.new
     expect(bike).to be_working
   end
 
@@ -19,10 +19,8 @@ describe DockingStation do
     expect (subject.dock_bike(bike)).equal? bike
   end
 
-  #Test below now redundant as method replaced with attr_reader
-  #it "checks if bike is in docking station" do
-  #  bike = Bike.new
-  #  expect (subject.check_bike).equal? bike
-  #end
+it "raise an error if no bike" do
+  expect{subject.release_bike}.to raise_error "There is no bike available"
+end
 
 end
