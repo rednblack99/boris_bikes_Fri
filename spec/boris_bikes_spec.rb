@@ -14,4 +14,9 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
+  it "docks a bike" do
+    bike = Bike.new
+    expect (subject.dock_bike(bike)).equal? bike
+  end
+
 end
