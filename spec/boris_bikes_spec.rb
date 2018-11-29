@@ -19,9 +19,10 @@ describe DockingStation do
     expect (subject.dock_bike(bike)).equal? bike
   end
 
-  it "checks if bike is in docking station" do
-    bike = Bike.new
-    expect (subject.check_bike).equal? bike
-  end
+  #Test below now redundant as method replaced with attr_reader
+  #it "checks if bike is in docking station" do
+  #  bike = Bike.new
+  #  expect (subject.check_bike).equal? bike
+  #end
 
 end
