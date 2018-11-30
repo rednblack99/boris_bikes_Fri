@@ -21,8 +21,13 @@ public
   def release_bike
     if @bikes.empty?
       raise "There is no bike available"
+
     else
-      @bikes
+      if @bikes.working? == false
+        raise "Bike broken"
+      else
+        @bikes
+      end
     end
   end
 
@@ -35,7 +40,16 @@ public
 end
 
 class Bike
+
+  def initialize(bike_status = 'working')
+    @bike_status = bike_status
+  end
+
   def working?
-    true
+    if @bike_status == 'working'
+      return true
+    else
+      false
+    end
   end
 end
