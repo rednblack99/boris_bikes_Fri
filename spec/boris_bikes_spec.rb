@@ -25,7 +25,9 @@ describe DockingStation do
 
   it "raise an error if docking station is full" do
     docking_station = subject
-    20.times { docking_station.dock_bike Bike.new }
+    DockingStation::DEFAULT_CAPACITY.times do
+      subject.dock_bike Bike.new
+    end
     expect{subject.dock_bike(Bike.new)}.to raise_error "There is no space available"
   end
 
