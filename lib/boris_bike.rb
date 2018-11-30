@@ -4,7 +4,7 @@ class DockingStation
   def initialize
     @bikes = []
   end
-
+3
   def release_bike
     if @bikes.empty?
       raise "There is no bike available"
