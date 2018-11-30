@@ -42,4 +42,10 @@ describe DockingStation do
     expect {subject.full?}.to raise_error(NoMethodError)
   end
 
+  it "sets a capacity of 40 rather than the default of 20" do
+    docking_station = DockingStation.new(40)
+    40.times { docking_station.dock_bike Bike.new }
+    expect{ docking_station.dock_bike Bike.new }.to raise_error "There is no space available"
+  end
+
 end
