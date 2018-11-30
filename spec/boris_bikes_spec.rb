@@ -24,9 +24,16 @@ describe DockingStation do
   end
 
   it "raise an error if docking station is full" do
+    docking_station = subject
+    20.times { docking_station.dock_bike Bike.new }
+    expect{subject.dock_bike(Bike.new)}.to raise_error "There is no space available"
+  end
+
+  it "allows the user to dock 16 bikes" do
     bike = Bike.new
-    subject.dock_bike(bike)
-    expect{subject.dock_bike(bike)}.to raise_error "There is no space available"
+    docking_station = subject
+    15.times { docking_station.dock_bike Bike.new }
+    expect{subject.dock_bike(bike)}.equal? bike
   end
 
 end

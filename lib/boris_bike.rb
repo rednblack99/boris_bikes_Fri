@@ -14,8 +14,11 @@ class DockingStation
   end
 
   def dock_bike(bike)
-    raise "There is no space available" if @bikes
-    @bikes = bike
+    if @bikes.length >= 20
+    raise "There is no space available" 
+    else
+    @bikes << bike
+    end
   end
 
 end
