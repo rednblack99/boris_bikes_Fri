@@ -36,4 +36,8 @@ describe DockingStation do
     expect{subject.dock_bike(bike)}.equal? bike
   end
 
+  it "checks if private method is private" do
+    expect {subject.full?}.to raise_error(NoMethodError)
+  end
+
 end
