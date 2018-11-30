@@ -53,11 +53,10 @@ describe DockingStation do
     expect (subject.dock_bike(bike)).equal? bike
   end
 
-  #it "won't release broken bike" do
-  #  bike = Bike.new("broken")
-  #  docked_bike = subject.dock_bike(bike)
-  #  expect{docked_bike.release_bike}.to raise_error "Bike broken"
-  #end
-
+  it "won't release broken bike" do
+    ds = subject
+    ds.dock_bike(Bike.new("broken"))
+    expect{ds.release_bike}.to raise_error "Bike broken"
+  end
 
 end
